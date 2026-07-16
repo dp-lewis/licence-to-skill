@@ -35,6 +35,10 @@ Use the **skill-creator** skill to author or improve a skill — it scaffolds th
 /skill-creator
 ```
 
+`skill-creator` comes from Anthropic's official marketplace — install it once
+with `/plugin marketplace add anthropics/claude-plugins-official` then
+`/plugin install skill-creator@claude-plugins-official`.
+
 Point it at `plugins/<your-skill>/skills/<your-skill>/SKILL.md`, then register
 the skill by adding an entry to the `plugins` array in
 [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).

@@ -26,6 +26,14 @@ plugins/<name>/
    the result. Place the skill under `plugins/<name>/skills/<name>/SKILL.md`
    (kebab-case name — the directory name is what users type after `/`).
 
+   `skill-creator` ships in Anthropic's official plugin marketplace. If you
+   don't already have it, install it once:
+
+   ```
+   /plugin marketplace add anthropics/claude-plugins-official
+   /plugin install skill-creator@claude-plugins-official
+   ```
+
 2. **Add the plugin manifest.** Each skill is its own plugin, so it needs
    `plugins/<name>/.claude-plugin/plugin.json` with at least `name`,
    `description`, and `version`. Copy an existing one as a starting point.
