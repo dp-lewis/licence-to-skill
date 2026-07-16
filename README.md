@@ -1,57 +1,69 @@
 # licence to skill
 
-A shared library of reusable [Claude Code skills](https://code.claude.com/docs/en/skills),
-distributed as a plugin marketplace.
+A shared library of reusable skills for Claude Code and GitHub Copilot,
+distributed as plugin marketplaces.
 
-Each skill is a small, self-contained procedure — a checklist or workflow you'd
-otherwise paste into chat over and over. Install the ones you want and invoke
-them with `/skill-name`, or let Claude load them automatically when relevant.
+Each skill is a small, self-contained procedure: a checklist or workflow you'd
+otherwise paste into chat over and over. The canonical instructions live in
+`SKILL.md`; the surrounding manifests package them for each client.
 
 ## What's here
 
 | Skill | Does |
 | --- | --- |
-| [`explain-code`](plugins/explain-code) | Explains a file or the selected code in plain language. |
 | [`premortem-coach`](plugins/premortem-coach) | Runs a pre-mortem facilitation session and produces a kickoff doc with ranked risks. |
 
 ## Install
 
-Add this repo as a plugin marketplace, then install the skills you want:
+### Claude Code
 
-```
+```text
 /plugin marketplace add dp-lewis/licence-to-skill
-/plugin install explain-code@licence-to-skill
+/plugin install premortem-coach@licence-to-skill
 ```
 
-Invoke a skill with `/explain-code`, or let Claude load it automatically when
-it's relevant. Pull later updates with `/plugin marketplace update`.
+Invoke it with `/premortem-coach`, or let Claude load it automatically when
+relevant.
+
+### Copilot CLI
+
+```text
+copilot plugin marketplace add dp-lewis/licence-to-skill
+copilot plugin install premortem-coach@licence-to-skill
+```
+
+Then start a session and invoke it with a prompt such as `Use the
+/premortem-coach skill to run a pre-mortem on this project`, or let Copilot
+load it automatically when relevant.
 
 ## Add a skill
 
-Use the **skill-creator** skill to author or improve a skill — it scaffolds the
-`SKILL.md`, helps you write a strong description, and can test the result:
+Author the canonical skill in `plugins/<name>/skills/<name>/SKILL.md`, keep the
+instructions portable between Claude and Copilot, then add the thin packaging
+manifests for each client:
 
+```text
+plugins/<name>/
+  .claude-plugin/plugin.json
+  .github/plugin/plugin.json
+  skills/<name>/SKILL.md
+  README.md
 ```
-/skill-creator
-```
 
-`skill-creator` comes from Anthropic's official marketplace — install it once
-with `/plugin marketplace add anthropics/claude-plugins-official` then
-`/plugin install skill-creator@claude-plugins-official`.
-
-Point it at `plugins/<your-skill>/skills/<your-skill>/SKILL.md`, then register
-the skill by adding an entry to the `plugins` array in
-[`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
+Register the skill in both marketplace manifests: `.claude-plugin/marketplace.json`
+and `.github/plugin/marketplace.json`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for conventions and the full checklist.
 
 ## How it fits together
 
-```
-.claude-plugin/marketplace.json   Catalog users add with /plugin marketplace add
+```text
+.claude-plugin/marketplace.json   Claude marketplace manifest
+.github/plugin/marketplace.json   Copilot marketplace manifest
 plugins/<skill>/
-  .claude-plugin/plugin.json      Plugin manifest
-  skills/<skill>/SKILL.md         The skill itself
+  .claude-plugin/plugin.json      Claude plugin manifest
+  .github/plugin/plugin.json      Copilot plugin manifest
+  skills/<skill>/SKILL.md         Canonical skill instructions
   README.md                       Optional: longer explanation, examples
 ```
 

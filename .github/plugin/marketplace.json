@@ -1,10 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "licence-to-skill",
-  "description": "A shared library of skills for Claude Code and GitHub Copilot.",
   "owner": {
     "name": "David Lewis",
     "email": "mail@david-lewis.com"
+  },
+  "metadata": {
+    "description": "A shared library of skills for Claude Code and GitHub Copilot."
   },
   "plugins": [
     {
@@ -17,7 +18,15 @@
         "name": "David Lewis",
         "email": "mail@david-lewis.com"
       },
-      "keywords": ["pre-mortem", "premortem", "coaching", "facilitation", "risk", "kickoff", "planning"]
+      "keywords": [
+        "pre-mortem",
+        "premortem",
+        "coaching",
+        "facilitation",
+        "risk",
+        "kickoff",
+        "planning"
+      ]
     }
   ]
 }

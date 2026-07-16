@@ -1,0 +1,20 @@
+{
+  "name": "premortem-coach",
+  "version": "0.1.0",
+  "description": "Pre-mortem coaching for software projects. Runs an imagined-failure facilitation session, then produces a kickoff document with ranked risks, mitigations, and early-warning signals.",
+  "author": {
+    "name": "David Lewis",
+    "email": "mail@david-lewis.com",
+    "url": "https://github.com/dp-lewis"
+  },
+  "license": "MIT",
+  "keywords": [
+    "pre-mortem",
+    "premortem",
+    "coaching",
+    "facilitation",
+    "risk",
+    "kickoff",
+    "planning"
+  ]
+}
