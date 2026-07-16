@@ -6,13 +6,10 @@
     "name": "David Lewis",
     "email": "mail@david-lewis.com"
   },
-  "metadata": {
-    "pluginRoot": "./plugins"
-  },
   "plugins": [
     {
       "name": "explain-code",
-      "source": "explain-code",
+      "source": "./plugins/explain-code",
       "description": "Explain a file or the selected code in plain language.",
       "version": "0.1.0",
       "license": "MIT",
@@ -24,7 +21,7 @@
     },
     {
       "name": "premortem-coach",
-      "source": "premortem-coach",
+      "source": "./plugins/premortem-coach",
       "description": "Pre-mortem coaching for software projects: an imagined-failure facilitation session that ends in a kickoff document with ranked risks, mitigations, and early-warning signals.",
       "version": "0.1.0",
       "license": "MIT",
